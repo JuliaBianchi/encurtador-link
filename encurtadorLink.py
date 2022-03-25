@@ -52,11 +52,11 @@ class Encurtador:
         # salvar no dicionario usando como chave o valor da variavel self.indice
         # o valor a ser salvo é uma tupla onde a posicao 0 eh o indice convertido
         # para string usando base62 e a posicao 1 eh a url original
-        # nao esqueca de incrementar a variavel self.indice
-        # e por fim, chamar o metodo __save_dic para salvar o dicionario no arquivo em disco.
+        # nao esqueca de incrementar a variavel self.indice   
+        # e por fim, chamar o metodo __save_dic para salvar o dicionario no arquivo em disco.  
         self.dic[self.indice] = (self.toBase(self.indice), url)
         self.__save_dic()
-
+        return self.dic[self.indice]
 
     def buscar(self, url_curta):
         indice = self.to10(url_curta)
@@ -71,8 +71,8 @@ def menu():
         if escolha == 1:
             #Conversão de URL
             url = str(input("Digite a url: "))
-            e.encurtar(url)
-            print("A url convertida é: " , url)      
+            urlNew = e.encurtar(url)
+            print("A url convertida é: " , urlNew)      
         elif escolha == 2:
             inteiro = int(input("Digite o inteiro: "))
             #conversão do inteiro para string
